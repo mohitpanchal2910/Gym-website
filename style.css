@@ -1,0 +1,496 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #fff;
+    color: #333;
+    overflow-x: hidden;
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar .logo span {
+    color: #e63946;
+    text-shadow: 0 0 10px rgba(230, 57, 70, 0.8);
+}
+
+/* Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #e63946;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e63946;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Active link (optional if you add JS to highlight) */
+.nav-links a.active {
+    color: #e63946;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease;
+}
+
+/* Hero Button */
+.btn {
+    display: inline-block;
+    background: #e63946;
+    /* red accent */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #d62828;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Trainers */
+.trainers-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.trainer-card {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.trainer-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.trainer-card:hover {
+    transform: scale(1.05);
+}
+
+
+/* Testimonials */
+
+#testimonials {
+    color: #000000b4;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+
+}
+
+#testimonials::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.288);
+}
+
+.testimonials-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background: rgba(136, 127, 127, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 300px;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+}
+
+.testimonial:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.testimonial:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.testimonial:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+/* Sections */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.class-container,
+.trainer-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.class-card,
+.trainer-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.class-card:hover,
+.trainer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.trainer-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Contact */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #c0c0bf;
+    border-radius: 5px;
+}
+
+form button {
+    border: none;
+    cursor: pointer;
+}
+
+/* Contact Section */
+#contact {
+    background: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+}
+
+#contact textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+#contact button {
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+/* Navbar (desktop) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar .logo span {
+    color: #e63946;
+    text-shadow: 0 0 10px rgba(230, 57, 70, 0.8);
+}
+
+/* Links (desktop) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #e63946;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e63946;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #e63946;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 15px;
+    }
+
+    #contact form {
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(17, 17, 17, 0.95);
+        width: 200px;
+        height: 100vh;
+        padding: 40px 20px;
+        transition: right 0.3s ease;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Hamburger animation when active */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
